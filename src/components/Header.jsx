@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { VARIABLES } from '../api.js';
+import { useEducation } from '../context/EducationContext.jsx';
 
 export default function Header({ variable, onVariable }) {
   const [menu, setMenu] = useState(false);
   const [open, setOpen] = useState(false);
+  const { on: learning, toggle: toggleLearning } = useEducation();
   return (
     <header className="header">
       <div className="topbar">
@@ -11,6 +13,9 @@ export default function Header({ variable, onVariable }) {
           <span /><span /><span />
         </button>
         <h1 className="brand">Nature Map</h1>
+        <button className={learning ? 'chip on learning-toggle' : 'chip learning-toggle'} onClick={toggleLearning} aria-pressed={learning}>
+          📘 {learning ? 'Learning mode: on' : 'Learning mode'}
+        </button>
       </div>
 
       <div className="select-wrap">
