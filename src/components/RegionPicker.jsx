@@ -29,7 +29,7 @@ export default function RegionPicker({ presetId, bounds, onPreset, onClear, onMa
       <p className="hint small">Drag "Select area" on the map, or set a box by hand below (handy without a mouse).</p>
       <div className="panel-body">
         <button className="chip" onClick={() => setManualOpen((v) => !v)} aria-expanded={manualOpen}>
-          ⌨ {manualOpen ? 'Hide manual entry' : 'Enter coordinates manually'}
+          {manualOpen ? 'Hide manual entry' : 'Enter coordinates manually'}
         </button>
         {manualOpen && (
           <div className="manual-bounds">

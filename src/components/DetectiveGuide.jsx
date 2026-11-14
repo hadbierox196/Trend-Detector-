@@ -13,7 +13,7 @@ export default function DetectiveGuide({ open, onToggle, onApply }) {
   return (
     <div className="panel guide">
       <button className="panel-toggle" onClick={onToggle} aria-expanded={open}>
-        <span>🕵️ What do you want to investigate?</span>
+        <span>What do you want to investigate?</span>
         <i className={open ? 'chev up' : 'chev'} />
       </button>
       {open && (

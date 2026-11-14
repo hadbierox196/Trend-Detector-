@@ -65,19 +65,19 @@ export default function TimeSeriesChart({ variable, bounds, cadence, setCadence,
       <div ref={chartRef}>
         <ResponsiveContainer width="100%" height={220}>
           <ComposedChart data={chartData} margin={{ top: 4, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e0da" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#D5DDCF" />
             <XAxis dataKey="x" tickFormatter={(v) => Math.round(v)} type="number" domain={['dataMin', 'dataMax']} tick={{ fontSize: 11 }} />
             <YAxis tick={{ fontSize: 11 }} width={46} domain={['auto', 'auto']} />
             <Tooltip labelFormatter={(v) => yearLabel(v, cadence)} formatter={(v) => [v?.toFixed(3), variable.unit]} />
-            <Line type="monotone" dataKey="value" name={deseasonalized ? 'Anomaly' : variable.label} stroke="#6B8E4E" strokeWidth={2} dot={false} isAnimationActive={false} />
-            <Line data={trendLine} dataKey="t" name="Trend" stroke="#B5533C" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} legendType="line" />
+            <Line type="monotone" dataKey="value" name={deseasonalized ? 'Anomaly' : variable.label} stroke="#2F6B3F" strokeWidth={2} dot={false} isAnimationActive={false} />
+            <Line data={trendLine} dataKey="t" name="Trend" stroke="#D55E00" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} legendType="line" />
             <Legend wrapperStyle={{ fontSize: 11 }} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
       <div className="chart-foot">
-        <button className="chip" onClick={() => exportChartPNG(chartRef.current, `${variable.id}_chart.png`)}>⬇ PNG</button>
-        <button className="chip" onClick={() => exportCSV({ variable, x: raw.x, values: raw.values, cadence })}>⬇ CSV</button>
+        <button className="chip" onClick={() => exportChartPNG(chartRef.current, `${variable.id}_chart.png`)}>Download PNG</button>
+        <button className="chip" onClick={() => exportCSV({ variable, x: raw.x, values: raw.values, cadence })}>Download CSV</button>
       </div>
     </div>
   );

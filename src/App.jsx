@@ -113,7 +113,7 @@ export default function App() {
         <button className={tab === 'explore' ? 'on' : ''} onClick={() => setTab('explore')}>Explore</button>
         <button className={tab === 'spatial' ? 'on' : ''} onClick={() => setTab('spatial')}>Spatial Trend Map</button>
         <button className={tab === 'compare' ? 'on' : ''} onClick={() => setTab('compare')}>Compare Regions</button>
-        <button className="share-btn" onClick={shareLink}>{copied ? '✓ Link copied' : '🔗 Share'}</button>
+        <button className="share-btn" onClick={shareLink}>{copied ? 'Link copied' : 'Share link'}</button>
       </div>
 
       {tab === 'explore' && (
@@ -149,7 +149,7 @@ export default function App() {
               quality={quality}
             />
             <ResearchContext variable={variable} />
-            <button className="chip" onClick={downloadSummary} style={{ alignSelf: 'flex-start' }}>⬇ Download summary (.txt)</button>
+            <button className="chip" onClick={downloadSummary} style={{ alignSelf: 'flex-start' }}>Download summary (.txt)</button>
           </div>
         </main>
       )}

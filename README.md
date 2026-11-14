@@ -34,3 +34,18 @@ Tabs in `App.jsx` switch between **Explore** (variable finder + guide + map + si
 - **Research/news context** (`src/data/context.js`, `components/ResearchContext.jsx`) — one or two curated, hand-written background notes per variable (e.g. GRACE/soil-moisture and Indian groundwater depletion, OMI NO₂ and COVID-19 lockdown drops). This is static, not a live feed — the file has a `TODO: GET /api/context?...` marking where a real news/literature search API would plug in.
 - **Shareable links** (`src/lib/shareLink.js`) — the "🔗 Share" button encodes the current variable, region (preset or custom box), cadence, date range, anomaly toggle, and tab into the URL's query string and copies it; opening that URL restores the same view.
 - **Accessibility pass** — the spatial trend map's diverging color scale is now colorblind-safe (Okabe-Ito blue/orange instead of red/blue or red/green); every interactive element has a visible `:focus-visible` outline; and the region picker has a manual South/North/West/East number-entry fallback for selecting a custom box without a mouse, since dragging on the Leaflet map has no built-in keyboard equivalent.
+
+## Getting started
+
+```
+npm install
+npm run dev      # local dev server
+npm run build    # production build into dist/
+npm run preview  # serve the production build
+```
+
+Commit the `package-lock.json` that `npm install` generates so builds are reproducible.
+
+## Design notes
+
+Styling lives in a single file, `src/styles.css`, driven by CSS variables at the top (`--ink`, `--moss`, `--leaf`, `--paper`, `--rise`, `--fall`). Fonts are Schibsted Grotesk (UI) and Newsreader (headings, year, plain-English results), loaded from Google Fonts in `index.html`. The map data ramp is `COLORS` in `src/components/MapView.jsx`; trend lines use the Okabe-Ito orange/blue pair so they match the Spatial Trend Map.

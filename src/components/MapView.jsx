@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MapContainer, TileLayer, Rectangle, CircleMarker, useMap, useMapEvents } from 'react-leaflet';
 import { BASEMAPS } from '../api.js';
 
-export const COLORS = ['#C5E59B', '#8DB66A', '#6B8E4E', '#CBA88A', '#6B4A35'];
+export const COLORS = ['#E3EFD3', '#A9D18E', '#5FA46A', '#2C7A6B', '#124A55'];
 export const colorFor = (v) => COLORS[Math.min(COLORS.length - 1, Math.floor(v * COLORS.length))];
 
 function Selector({ active, onDone, setDraft }) {
@@ -37,14 +37,14 @@ export default function MapView({ grid, area, onArea }) {
           <CircleMarker key={`${c.lat}${c.lon}`} center={[c.lat, c.lon]} radius={6}
             pathOptions={{ color: 'transparent', fillColor: colorFor(c.value), fillOpacity: 0.7 }} />
         ))}
-        {area && <Rectangle bounds={rect(area)} pathOptions={{ color: '#6B4A35', weight: 2, fillOpacity: 0.1 }} />}
+        {area && <Rectangle bounds={rect(area)} pathOptions={{ color: '#14302B', weight: 2, fillOpacity: 0.1 }} />}
         {draft && <Rectangle bounds={rect(draft)} pathOptions={{ color: '#6B8E4E', dashArray: '4' }} />}
         <Selector active={selecting} setDraft={setDraft} onDone={(b) => { onArea(b); setSelecting(false); }} />
       </MapContainer>
 
       <div className="map-tools">
         <button className={selecting ? 'chip on' : 'chip'} onClick={() => setSelecting(!selecting)}>
-          ▭ {selecting ? 'Drag on map…' : 'Select area'}
+          {selecting ? 'Drag on map…' : 'Select area'}
         </button>
         <div className="dots-wrap">
           <button className="chip dots" aria-label="Map options" onClick={() => setMenu(!menu)}>⋮</button>

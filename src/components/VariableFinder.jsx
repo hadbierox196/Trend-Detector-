@@ -17,7 +17,7 @@ export default function VariableFinder({ variable, onVariable, open, onToggle })
   return (
     <div className="panel finder">
       <button className="panel-toggle" onClick={onToggle} aria-expanded={open}>
-        <span>🔎 Variable finder</span>
+        <span>Variable finder</span>
         <strong>{variable.label}</strong>
         <i className={open ? 'chev up' : 'chev'} />
       </button>

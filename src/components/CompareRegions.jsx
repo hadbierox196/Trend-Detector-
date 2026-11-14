@@ -27,12 +27,12 @@ function MiniChart({ title, chartData, trendLine, unit }) {
       <h3>{title}</h3>
       <ResponsiveContainer width="100%" height={180}>
         <ComposedChart data={chartData} margin={{ top: 4, right: 6, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e4e0da" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#D5DDCF" />
           <XAxis dataKey="x" tickFormatter={(v) => Math.round(v)} type="number" domain={['dataMin', 'dataMax']} tick={{ fontSize: 10 }} />
           <YAxis tick={{ fontSize: 10 }} width={40} domain={['auto', 'auto']} />
           <Tooltip formatter={(v) => [v?.toFixed(3), unit]} labelFormatter={(v) => Math.round(v)} />
-          <Line type="monotone" dataKey="value" stroke="#6B8E4E" strokeWidth={2} dot={false} isAnimationActive={false} />
-          <Line data={trendLine} dataKey="t" stroke="#B5533C" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />
+          <Line type="monotone" dataKey="value" stroke="#2F6B3F" strokeWidth={2} dot={false} isAnimationActive={false} />
+          <Line data={trendLine} dataKey="t" stroke="#D55E00" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

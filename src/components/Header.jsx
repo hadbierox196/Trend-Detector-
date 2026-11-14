@@ -14,13 +14,13 @@ export default function Header({ variable, onVariable }) {
         </button>
         <h1 className="brand">Nature Map</h1>
         <button className={learning ? 'chip on learning-toggle' : 'chip learning-toggle'} onClick={toggleLearning} aria-pressed={learning}>
-          📘 {learning ? 'Learning mode: on' : 'Learning mode'}
+          {learning ? 'Learning mode: on' : 'Learning mode'}
         </button>
       </div>
 
       <div className="select-wrap">
         <button className="big-select" onClick={() => setOpen(!open)} aria-expanded={open}>
-          <small>Choose Your Variable</small>
+          <small>Variable</small>
           <strong>{variable.label}</strong>
           <i className={open ? 'chev up' : 'chev'} />
         </button>

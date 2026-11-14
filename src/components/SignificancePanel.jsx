@@ -36,7 +36,7 @@ export default function SignificancePanel({ variable, regionLabel, range, cadenc
         <div className="quality-flags">
           <strong>Data quality notes</strong>
           <ul>
-            {quality.notes.map((n, i) => <li key={i}>⚠ {n}</li>)}
+            {quality.notes.map((n, i) => <li key={i}>{n}</li>)}
           </ul>
         </div>
       )}
